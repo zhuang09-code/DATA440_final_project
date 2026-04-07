@@ -10,7 +10,6 @@ TEXT_COLUMNS = [
     "department",
 ]
 
-
 def clean_cell(x):
     """
     Clean a single cell by removing extra whitespace.
