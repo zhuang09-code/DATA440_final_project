@@ -1,25 +1,29 @@
 import json
 from pathlib import Path
 
-def save_data(df, csv_path="data/raw/faculty_people_page.csv",
-              json_path="data/raw/faculty_people_page.json"):
+def save_df(df, csv_path, json_path=None):
     """
-    Save cleaned output files.
+    Save a DataFrame to a CSV file and optionally to a JSON file.
+    The function also creates parent directories if needed. 
 
-    Note:
-    - email_raw and webpage_raw are kept internally for debugging,
-      but excluded from final saved output files.
+    Parameters
+    df: pandas.DataFrame
+        The DataFrame to save.
+    csv_path: str
+        The file path where the CSV output will be saved.
+    json_path: str or None, optional
+        The file path where the JSON output will be saved. If None,
+        no JSON file will be created.
     """
-    
+
     csv_file = Path(csv_path)
-    json_file = Path(json_path)
-
     csv_file.parent.mkdir(parents=True, exist_ok=True)
-    json_file.parent.mkdir(parents=True, exist_ok=True)
 
-    output_df = df.drop(columns=["email_raw", "webpage_raw"], errors="ignore")
-    output_df.to_csv(csv_file, index=False)
+    df.to_csv(csv_file, index=False)
 
-    output_records = output_df.to_dict(orient="records")
-    with open(json_file, "w", encoding="utf-8") as f:
-        json.dump(output_records, f, indent=2, ensure_ascii=False)
+    if json_path is not None:
+        json_file = Path(json_path)
+        json_file.parent.mkdir(parents=True, exist_ok=True)
+
+        with open(json_file, "w", encoding="utf-8") as f:
+            json.dump(df.to_dict(orient="records"), f, indent=2, ensure_ascii=False)
