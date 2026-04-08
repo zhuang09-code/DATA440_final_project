@@ -3,17 +3,17 @@ from pathlib import Path
 
 def save_df(df, csv_path, json_path=None):
     """
-    Save a DataFrame to a CSV file and optionally to a JSON file.
+    Save a DataFrame to a csv file and optionally to a json file.
     The function also creates parent directories if needed. 
 
     Parameters
     df: pandas.DataFrame
         The DataFrame to save.
     csv_path: str
-        The file path where the CSV output will be saved.
+        The file path where the csv output will be saved.
     json_path: str or None, optional
-        The file path where the JSON output will be saved. If None,
-        no JSON file will be created.
+        The file path where the json output will be saved. If None,
+        no json file will be created.
     """
 
     csv_file = Path(csv_path)

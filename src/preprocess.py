@@ -1,6 +1,6 @@
 import pandas as pd
 
-TEXT_COLUMNS = [
+text_columns = [
     "name",
     "title",
     "office",
@@ -29,12 +29,12 @@ def preprocess_data(df):
     df = df.drop(columns=["email_raw", "webpage_raw"], errors="ignore")
 
     # Make sure all expected text columns exist
-    for col in TEXT_COLUMNS:
+    for col in text_columns:
         if col not in df.columns:
             df[col] = ""
 
     # Clean text columns
-    for col in TEXT_COLUMNS:
+    for col in text_columns:
         df[col] = df[col].apply(clean_cell)
 
     # Remove rows without a faculty name
