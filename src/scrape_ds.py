@@ -3,10 +3,10 @@ import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 
-from src.config import URL, HEADERS
+from src.config import DATA_URL, HEADERS
 from src.text_utils import clean_text, normalize_value, parse_email, parse_webpage
 
-def scrape_data_science_people(url=URL):
+def scrape_data_science_people(url: str = DATA_URL) -> pd.DataFrame:
     """
     Scrape the W&M Data Science people page and return:
     1. a pandas DataFrame

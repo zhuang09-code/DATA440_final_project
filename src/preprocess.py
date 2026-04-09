@@ -10,7 +10,7 @@ text_columns = [
     "department",
 ]
 
-def clean_cell(x):
+def clean_cell(x: str) -> str:
     """
     Clean a single cell by removing extra whitespace.
     """
@@ -19,7 +19,7 @@ def clean_cell(x):
     return " ".join(str(x).split()).strip()
 
 
-def preprocess_data(df):
+def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
     """
     Clean and prepare scraped faculty data for recommendation.
     """

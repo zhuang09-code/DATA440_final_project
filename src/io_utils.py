@@ -1,7 +1,8 @@
 import json
+import pandas as pd
 from pathlib import Path
 
-def save_df(df, csv_path, json_path=None):
+def save_df(df: pd.DataFrame, csv_path: str, json_path: str = None) -> None:
     """
     Save a DataFrame to a csv file and optionally to a json file.
     The function also creates parent directories if needed. 
@@ -27,3 +28,5 @@ def save_df(df, csv_path, json_path=None):
 
         with open(json_file, "w", encoding="utf-8") as f:
             json.dump(df.to_dict(orient="records"), f, indent=2, ensure_ascii=False)
+    
+    return None
