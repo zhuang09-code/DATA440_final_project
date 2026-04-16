@@ -18,7 +18,6 @@ def clean_cell(x: str) -> str:
         return ""
     return " ".join(str(x).split()).strip()
 
-
 def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
     """
     Clean and prepare scraped faculty data for recommendation.
