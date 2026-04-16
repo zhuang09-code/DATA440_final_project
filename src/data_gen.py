@@ -33,7 +33,7 @@ def generate_data(keyword: str) -> pd.DataFrame:
     research_counts = []
     total_papers_list = []  
 
-    for name in df["Name"]:
+    for name in df["name"]:
         papers = get_papers(fix_name(name))
     
         total_papers = len(papers)
