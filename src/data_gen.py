@@ -23,9 +23,7 @@ def generate_data(keyword: str) -> pd.DataFrame:
     # 3. iterate faculty
     for name in df["name"]:
         papers = get_papers(fix_name(name)) or []
-
         result = compute_faculty_relevance(papers, keyword)
-
         keyword_counts.append(result["keyword_count"])
         total_papers_list.append(result["total_papers"])
         scores.append(result["score"])
