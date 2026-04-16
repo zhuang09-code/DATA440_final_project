@@ -61,3 +61,14 @@ def parse_webpage(raw: str | None) -> str | None:
         return match.group(1).strip()
 
     return raw
+
+def fix_name(name: str) -> str:
+    """
+    Fix the name format from "Last, First" to "First Last" for better search results in Semantic Scholar.
+        Args:
+            name (str): The name in "Last, First" format.
+    """
+    if "," in name:
+        last, first = name.split(",", 1)
+        return first.strip() + " " + last.strip()
+    return name

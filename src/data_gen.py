@@ -1,20 +1,12 @@
 import pandas as pd
-from src.scrape_ds import scrape_data_science_people
+from src.scrape_deparment import scrape_data_science_people
 from src.preprocess import preprocess_data
 from src.research_scraper import get_papers, count_keyword
+from src.scoring import compute_faculty_relevance
+from text_utils import fix_name
 
 keyword = "example_keyword"
 
-def fix_name(name: str) -> str:
-    """
-    Fix the name format from "Last, First" to "First Last" for better search results in Semantic Scholar.
-        Args:
-            name (str): The name in "Last, First" format.
-    """
-    if "," in name:
-        last, first = name.split(",", 1)
-        return first.strip() + " " + last.strip()
-    return name
 
 def generate_data(keyword: str) -> pd.DataFrame:
     """
