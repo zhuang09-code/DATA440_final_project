@@ -1,15 +1,13 @@
-import numpy as np
-
-def compute_keyword_count(papers: list, keyword: str) -> int:
+def compute_keyword_count(papers: list, keywords: list[str]) -> int:
     """
-    Count how many papers contain the keyword.
+   Count how many papers contain at least one keyword.
     """
-    keyword = keyword.lower()
+    lowered_keywords = [k.lower().strip() for k in keywords if k.strip()]
     count = 0
 
     for i in papers:
         text = (i.get("title", "") + " " + i.get("abstract", "")).lower()
-        if keyword in text:
+        if any(keyword in text for keyword in lowered_keywords):
             count += 1
 
     return count
@@ -22,12 +20,12 @@ def compute_normalized_relevance(keyword_count: int, total_papers: int, eps: flo
     return keyword_count / (total_papers + eps)
 
 
-def compute_faculty_relevance(papers: list, keyword: str) -> dict:
+def compute_faculty_relevance(papers: list, keywords: list[str]) -> dict:
     """
     Compute overall relevance score for a faculty member.
     """
     total_papers = len(papers)
-    keyword_count = compute_keyword_count(papers, keyword)
+    keyword_count = compute_keyword_count(papers, keywords)
     score = compute_normalized_relevance(keyword_count, total_papers)
 
     return {
