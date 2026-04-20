@@ -1,4 +1,5 @@
 import numpy as np
+from numpy.char import title
 
 def compute_keyword_count(papers: list, keyword: str) -> int:
     """
@@ -7,8 +8,13 @@ def compute_keyword_count(papers: list, keyword: str) -> int:
     keyword = keyword.lower()
     count = 0
 
+    # Combine title and abstract for keyword search
     for i in papers:
-        text = (i.get("title", "") + " " + i.get("abstract", "")).lower()
+        # Handeling  for missing title or abstract
+        title = i.get("title") or ""
+        abstract = i.get("abstract") or ""
+        
+        text = (title + " " + abstract).lower()
         if keyword in text:
             count += 1
 
