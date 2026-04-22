@@ -57,7 +57,7 @@ def get_papers(author_name: str, dept: str = "", interests: str = "") -> List[Di
             best_score = score
             best_author = author
 
-    # Confidence check
+    # Confidence check (helps with identifying issues that may come from scraping the semantic scholar website)
     if best_score < 3 or not best_author:
         print(f"⚠️ Low confidence match for {author_name}")
         return []

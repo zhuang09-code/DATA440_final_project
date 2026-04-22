@@ -3,7 +3,7 @@ from numpy.char import title
 
 def compute_keyword_count(papers: list, keywords: list[str]) -> int:
     """
-   Count how many papers contain at least one keyword.
+    Count how many papers contain at least one keyword.
     """
     lowered_keywords = [k.lower().strip() for k in keywords if k.strip()]
     count = 0

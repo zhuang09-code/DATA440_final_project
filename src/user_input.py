@@ -1,4 +1,4 @@
-def get_user_query():
+def get_user_query() -> str:
     """
     Ask the user to enter research interests and return the input
     """
@@ -11,3 +11,5 @@ def get_user_query():
             return user_input
         
         print("No valid input was entered. Please enter at least one research interest.")
+    
+    return None
