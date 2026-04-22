@@ -4,7 +4,6 @@ def clean_text(s: str) -> str:
     """Collapse repeated whitespace and trim both ends."""
     return re.sub(r"\s+", " ", str(s)).strip()
 
-
 def normalize_value(raw: str | None) -> str | None:
     """
     Clean a scraped field value and remove leading ':' if present.
@@ -19,7 +18,6 @@ def normalize_value(raw: str | None) -> str | None:
     raw = clean_text(raw)
     raw = re.sub(r"^:\s*", "", raw).strip()
     return raw if raw else None
-
 
 def parse_email(raw: str | None) -> str | None:
     """
@@ -42,7 +40,6 @@ def parse_email(raw: str | None) -> str | None:
         return f"{pipe_match.group(1)}@wm.edu"
 
     return raw
-
 
 def parse_webpage(raw: str | None) -> str | None:
     """
