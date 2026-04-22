@@ -1,3 +1,6 @@
+from numpy.char import title
+
+
 def compute_keyword_count(papers: list, keywords: list[str]) -> int:
     """
    Count how many papers contain at least one keyword.
@@ -7,7 +10,10 @@ def compute_keyword_count(papers: list, keywords: list[str]) -> int:
 
     # Combine title and abstract for keyword search
     for i in papers:
-        text = (i.get("title", "") + " " + i.get("abstract", "")).lower()
+        title = i.get("title") or ""
+        abstract = i.get("abstract") or ""
+        text = (title + " " + abstract).lower()
+        
         if any(keyword in text for keyword in lowered_keywords):
             count += 1
 
