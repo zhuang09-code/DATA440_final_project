@@ -1,4 +1,5 @@
 import pandas as pd
+import re
 
 text_columns = [
     "name",
@@ -17,6 +18,41 @@ def clean_cell(x: str) -> str:
     if pd.isna(x):
         return ""
     return " ".join(str(x).split()).strip()
+
+def make_department_webpage(name: str) -> str:
+    """
+    Generate a default W&M Data Science department profile URL.
+
+    Example:
+        "Alam, MD Mahfuz Ibn"
+        -> "https://cdsp.wm.edu/data-science/people/alam-md.php"
+    """
+    if "," in name:
+        last = name.split(",")[0].strip().lower()
+        first = name.split(",")[1].strip().split()[0].lower()
+        slug = f"{last}-{first}"
+    else:
+        parts = name.strip().lower().split()
+        if len(parts) >= 2:
+            slug = f"{parts[-1]}-{parts[0]}"
+        else:
+            slug = parts[0] if parts else "unknown"
+
+    slug = re.sub(r"[^a-z0-9\-]", "", slug)
+
+    return f"https://cdsp.wm.edu/data-science/people/{slug}.php"
+
+def fill_missing_webpage(row: pd.Series) -> str:
+    """
+    Fill missing webpage values with the generated department profile URL.
+    """
+    webpage = row.get("webpage", "")
+    name = row.get("name", "")
+
+    if webpage == "" or webpage.lower() in ["none", "n/a", "na"]:
+        return make_department_webpage(name)
+
+    return webpage
 
 def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
     """
@@ -41,6 +77,9 @@ def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
 
     # Remove duplicate faculty entries
     df = df.drop_duplicates(subset=["name"]).reset_index(drop=True)
+
+    # Fill missing webpage values with generated department webpage
+    df["webpage"] = df.apply(fill_missing_webpage, axis=1)
 
     # Build a combined text field for recommendation
     df["profile_text"] = (
