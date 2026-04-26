@@ -32,6 +32,7 @@ def display_top_professors(df: pd.DataFrame, top_n: int = 3) -> None:
         print(f"   Title: {row.title}")
         print(f"   Office: {row.office}")
         print(f"   Email: {row.email}")
+        print(f"   Webpage: {row.webpage}")
         print(f"   Matching Papers: {row.keyword_count}")
         print("-" * 50)
     
