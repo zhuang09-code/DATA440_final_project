@@ -6,22 +6,22 @@ def display_top_professors(df: pd.DataFrame, top_n: int = 3) -> None:
     Inputs:
         df: DataFrame containing faculty information and scores.
         top_n: Number of top professors to display. (3 is set as default)
-    Output: 
-        Prints the top professors with their title and matching paper count.
+    Output:
+        Prints the top professors with their title, contact information, webpage, final score.
     
     Displayed Format Example:
         1. Ford, Trenton
         Title: Assistant Professor of Data Science
         Office: Integrated Science Center 3321
         Email: twford@wm.edu
-        Matching Papers: 15
+        Webpage: https://cdsp.wm.edu/data-science/people/ford-trenton.php
         --------------------------------------------------
     """
 
     # Sort by score (descending), then keyword_count as tiebreaker
     top_df = df.sort_values(
-        by=["score", "keyword_count"],
-        ascending=False
+        by=["score", "profile_score", "publication_score"],
+        ascending=[False, False, False]
     ).head(top_n)
 
     # Output the top professors in a readable format
@@ -33,7 +33,6 @@ def display_top_professors(df: pd.DataFrame, top_n: int = 3) -> None:
         print(f"   Office: {row.office}")
         print(f"   Email: {row.email}")
         print(f"   Webpage: {row.webpage}")
-        print(f"   Matching Papers: {row.keyword_count}")
-        print("-" * 50)
+        print(f"   Final Score: {row.score:.3f}")
     
     return None
