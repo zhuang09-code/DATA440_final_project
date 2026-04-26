@@ -1,6 +1,5 @@
 from numpy.char import title
 
-
 def compute_keyword_count(papers: list, keywords: list[str]) -> int:
     """
     Count how many papers contain at least one keyword.
@@ -19,13 +18,11 @@ def compute_keyword_count(papers: list, keywords: list[str]) -> int:
 
     return count
 
-
 def compute_normalized_relevance(keyword_count: int, total_papers: int, eps: float = 1e-8) -> float:
     """
     Normalize keyword count by total publications to reduce bias toward prolific authors.
     """
     return keyword_count / (total_papers + eps)
-
 
 def compute_faculty_relevance(papers: list, keywords: list[str]) -> dict:
     """
