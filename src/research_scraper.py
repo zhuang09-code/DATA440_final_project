@@ -80,17 +80,3 @@ def get_papers(author_name: str, dept: str = "", interests: str = "") -> List[Di
         return []
 
     return papers_data.get("data", [])
-
-def count_keyword(papers: List[Dict], keyword: str) -> int:
-    """Count how many papers contain the keyword in title or abstract
-    """
-    count = 0
-    keyword = keyword.lower()
-    
-    for p in papers:
-        text = (p.get("title", "") + " " + (p.get("abstract") or "")).lower()
-        
-        if keyword.lower() in text:
-            count += 1
-            
-    return count
