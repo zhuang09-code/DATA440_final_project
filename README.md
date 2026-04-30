@@ -31,3 +31,15 @@ After entering your input, the system will:
 7. Combine scores: final_score = profile_score + 0.5 * publication_score
 
 8. Rank faculty by final score
+
+The output will include each professor’s:
+
+Name
+
+Title
+
+Contact information
+
+Webpage
+
+Final relevance score
