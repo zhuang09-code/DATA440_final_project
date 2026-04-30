@@ -31,6 +31,5 @@ After entering your input, the system will:
 - **Contact information (email)** – for outreach  
 - **Webpage** – direct link to faculty profile  
 - **Final relevance score** – combined score based on profile and publications  
-- **Score source** – indicates whether the score is based on profile only or includes publication data  
 
 You can rerun the program with different research interests to explore different recommendations.
