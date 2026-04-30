@@ -8,7 +8,7 @@ Finding the right faculty is important because it can improve research opportuni
 
 This project addresses these challenges by using publicly available faculty and publication data to automate the matching process and generate ranked recommendations.
 
-## How it Works
+## How It Works
 
 The system generates faculty recommendations through the following steps:
 
@@ -20,7 +20,7 @@ The system generates faculty recommendations through the following steps:
 - Combine scores: final_score = profile_score + 0.5 × publication_score
 - Rank faculty members from highest to lowest final score  
 
-## How to Run the Project
+## How To Run The Project
 
 From the repository root, run:
 
