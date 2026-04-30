@@ -45,3 +45,7 @@ For each professor, the output includes:
 - Final relevance score – combined score based on profile and publications  
 
 You can rerun the program with different research interests to explore different recommendations.
+
+## Limitations
+
+Semantic Scholar author matching may not always be accurate, which can lead to incorrect or missing publication data for some faculty members. In addition, some faculty may not have publication data available in Semantic Scholar, which may affect the completeness of the recommendation results. Finally, the system relies on simple keyword matching rather than advanced semantic understanding, which may limit its ability to capture more complex research relationships. 
