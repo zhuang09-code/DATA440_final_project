@@ -32,14 +32,6 @@ After entering your input, the system will:
 
 8. Rank faculty by final score
 
-The output will include each professor’s:
+The output will include each professor’s name, title, contact information, webpage, and final relevance score. 
 
-·Name
-
-·Title
-
-·Contact information
-
-·Webpage
-
-·Final relevance score
+You can rerun the program with different research interests to explore different recommendations.
