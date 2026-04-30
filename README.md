@@ -26,10 +26,10 @@ After entering your input, the system will generate ranked faculty recommendatio
 
 For each professor, the output includes:
 
-- **Name** – faculty member’s full name  
-- **Title** – academic position  
-- **Contact information (email)** – for outreach  
-- **Webpage** – direct link to faculty profile  
-- **Final relevance score** – combined score based on profile and publications  
+- Name – faculty member’s full name  
+- Title – academic position  
+- Contact information – email for outreach  
+- Webpage – direct link to faculty's personal website (if any) or faculty's department profile 
+- Final relevance score – combined score based on profile and publications  
 
 You can rerun the program with different research interests to explore different recommendations.
