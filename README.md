@@ -34,12 +34,12 @@ After entering your input, the system will:
 
 The output will include each professor’s:
 
-Name
+·Name
 
-Title
+·Title
 
-Contact information
+·Contact information
 
-Webpage
+·Webpage
 
-Final relevance score
+·Final relevance score
