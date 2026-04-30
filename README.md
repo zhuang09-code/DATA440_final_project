@@ -8,7 +8,19 @@ Finding the right faculty is important because it can improve research opportuni
 
 This project addresses these challenges by using publicly available faculty and publication data to automate the matching process and generate ranked recommendations.
 
-## How to run the project
+## How it Works
+
+The system generates faculty recommendations through the following steps:
+
+- User input
+- Collect faculty profile data from the department website  
+- Match user research interests with faculty profile information to compute a base score  
+- Retrieve publication data from Semantic Scholar  
+- Compute a publication-based relevance score (normalized by total publications)  
+- Combine scores: final_score = profile_score + 0.5 × publication_score
+- Rank faculty members from highest to lowest final score  
+
+## How to Run the Project
 
 From the repository root, run:
 
