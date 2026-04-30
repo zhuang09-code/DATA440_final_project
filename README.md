@@ -27,3 +27,11 @@ After entering your input, the system will:
 The output will include each professor’s name, title, contact information, webpage, and final relevance score. 
 
 You can rerun the program with different research interests to explore different recommendations.
+
+
+- **Name** – faculty member’s full name  
+- **Title** – academic position  
+- **Contact information (email)** – for outreach  
+- **Webpage** – direct link to faculty profile  
+- **Final relevance score** – combined score based on profile and publications  
+- **Score source** – indicates whether the score is based on profile only or includes publication data  
