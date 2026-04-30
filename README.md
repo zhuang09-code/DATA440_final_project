@@ -16,21 +16,13 @@ Enter your research interests:
 
 After entering your input, the system will:
 
-1. User inputs research interests
+1.  Scrape faculty data from department website
 
-2. Scrape faculty data from department website
+2. Retrieve publications from Semantic Scholar
 
-3. Preprocess and clean data
+3. Compute relevance scores based on profile and publications
 
-4. Compute base relevance using faculty profile
-
-5. Retrieve publications from Semantic Scholar
-
-6. Compute publication relevance (normalized)
-
-7. Combine scores: final_score = profile_score + 0.5 * publication_score
-
-8. Rank faculty by final score
+4. Display the top recommended faculty members
 
 The output will include each professor’s name, title, contact information, webpage, and final relevance score. 
 
